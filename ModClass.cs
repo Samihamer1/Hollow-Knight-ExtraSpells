@@ -15,6 +15,7 @@ namespace ExtraSpells
                 ("Abyss_15", "Shade Sibling (32)"),
                 ("GG_Hollow_Knight","Battle Scene/HK Prime"),
                 ("GG_Grey_Prince_Zote","Zote Balloon"),
+                ("GG_Hornet_2","Boss Holder/Hornet Boss 2"),
                 ("GG_Ghost_Xero","Warrior/Ghost Warrior Xero")
             };
         }
@@ -25,7 +26,7 @@ namespace ExtraSpells
            Instance = this;
         }
 
-        public override string GetVersion() => "1.0.0.2";
+        public override string GetVersion() => "1.1.0.0";
 
         public override void Initialize(Dictionary<string, Dictionary<string, GameObject>> preloadedObjects)
         {
@@ -51,11 +52,15 @@ namespace ExtraSpells
             ExplodeDive.CreateSpell();
             VoidTendrils.CreateSpell();
             XeroBlades.CreateSpell();
+            SilkBurst.CreateSpell();
+            SelfDestruct.CreateSpell();
         }
 
         private void AddNailArts()
         {
             FlashDraw.CreateSpell();
+            SoulDraw.CreateSpell();
+            //VenomRush.CreateSpell();
         }
     }
 }

@@ -4,7 +4,7 @@ using Vasi;
 
 namespace ExtraSpells
 {
-    public static class Helper
+    internal static class Helper
     {
         public static tk2dSpriteAnimator GetKnightAnimator()
         {
@@ -32,13 +32,31 @@ namespace ExtraSpells
             return action.gameObject;
         }
 
+        private static FsmEvent GetFsmEvent(this PlayMakerFSM fsm, string eventName)
+        {
+            foreach (FsmEvent Event in fsm.Fsm.Events)
+            {
+                if (Event.Name == eventName) { return Event; }
+
+            }
+
+            return null;
+        }
+
         public static IEnumerator SendEventAfterAnim(string eventName, string anim, PlayMakerFSM fsm)
         {
             tk2dSpriteAnimator animator = GetKnightAnimator();
             
             yield return animator.PlayAnimWait(anim);
-
-            fsm.SendEvent(eventName);
+            
+            FsmEvent @event = fsm.GetFsmEvent(eventName);
+            if (@event == null)
+            {
+                fsm.SendEvent(eventName);
+            } else
+            {
+                fsm.ChangeState(@event);
+            }
         }
 
         public static IEnumerator SendEventAfterTime(string eventName, float time, PlayMakerFSM fsm)
@@ -53,6 +71,41 @@ namespace ExtraSpells
             tk2dSpriteAnimator animator = GetKnightAnimator();
 
             animator.Play(anim);
+        }
+
+        public static IEnumerator PlayAnimWait(string anim)
+        {
+            tk2dSpriteAnimator animator = GetKnightAnimator();
+
+            yield return animator.PlayAnimWait(anim);
+        }
+
+        public static IEnumerator WaitAnimDuration(string anim)
+        {
+            tk2dSpriteAnimator animator = GetKnightAnimator();
+
+            tk2dSpriteAnimationClip clipByName = animator.GetClipByName(anim);
+            yield return new WaitForSeconds(clipByName.Duration);
+            yield return new WaitForEndOfFrame();
+        }
+
+        private static void CameraShake(string shake)
+        {
+            GameCameras.instance.gameObject.Child("CameraParent").GetComponent<PlayMakerFSM>().SendEvent(shake);
+        }
+
+        public static void SmallCameraShake()
+        {
+            CameraShake("SmallShake");
+        }
+        public static void AverageCameraShake()
+        {
+            CameraShake("AverageShake");
+        }
+
+        public static void BigCameraShake()
+        {
+            CameraShake("BigShake");
         }
     }
 }

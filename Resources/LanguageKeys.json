@@ -16,9 +16,19 @@
     "INV_NAME_SPELL_VOIDTENDRILS2": "Void Tendrils",
     "INV_DESC_SPELL_VOIDTENDRILS2": "Release a flurry of close range tendrils made of void.\n\nThe tendrils require SOUL to be released. Strike enemies to gather SOUL.",
     "INV_NAME_SPELL_XEROBLADES1": "Dream Blades",
-    "INV_DESC_SPELL_XEROBLADES1": "Burn as much SOUL as possible to conjure Xero's Blades.\n\nThe blades require SOUL to be conjured. Strike enemies to gather SOUL.'",
+    "INV_DESC_SPELL_XEROBLADES1": "Burn as much SOUL as possible to conjure Xero's Blades.\n\nThe blades require SOUL to be conjured. Strike enemies to gather SOUL.",
     "INV_NAME_SPELL_XEROBLADES2": "Dream Blades",
-    "INV_DESC_SPELL_XEROBLADES2": "Burn as much SOUL as possible to conjure Xero's Blades.\n\nThe blades require SOUL to be conjured. Strike enemies to gather SOUL.'",
+    "INV_DESC_SPELL_XEROBLADES2": "Burn as much SOUL as possible to conjure Xero's Blades.\n\nThe blades require SOUL to be conjured. Strike enemies to gather SOUL.",
     "INV_NAME_ART_FLASHDRAW": "Flash Draw",
-    "INV_DESC_ART_FLASHDRAW": "The signature Nail Art of Nailmaster Oro, modified to fit your needs. Instead of dashing, you strike while at rest."
+    "INV_DESC_ART_FLASHDRAW": "The signature Nail Art of Nailmaster Oro, modified to fit your needs. Instead of dashing, you strike while at rest.",
+    "INV_NAME_ART_SOULDRAW": "Soul Draw",
+    "INV_DESC_ART_SOULDRAW": "The signature Nail Art of Nailmaster Sheo, modified to fit your needs. By wielding the Dream Nail alongside this technique, you can draw SOUL from enemies at a far greater range.",
+    "INV_NAME_SPELL_SILKBURST1": "Silk Burst",
+    "INV_DESC_SPELL_SILKBURST1": "Hornet's prized technique claimed as your own. Release threads of Silk to lash out at your opponents. The threads act as a cushion, weakening blows dealt to the caster. \n\nThe Silk require SOUL to be conjured. Strike enemies to gather SOUL.",
+    "INV_NAME_SPELL_SILKBURST2": "Silk Burst",
+    "INV_DESC_SPELL_SILKBURST2": "Hornet's prized technique claimed as your own. Release threads of Silk to lash out at your opponents. The threads act as a cushion, weakening blows dealt to the caster. \n\nThe Silk require SOUL to be conjured. Strike enemies to gather SOUL.",
+    "INV_NAME_SPELL_SELFDESTRUCT1": "Explosion",
+    "INV_DESC_SPELL_SELFDESTRUCT1": "Create a massive explosion, converting Masks to damage and leaving you in critical condition. Lifeblood masks are less effective. Beware overcharming. \n\nThe explosion require SOUL to be conjured. Strike enemies to gather SOUL.",
+    "INV_NAME_SPELL_SELFDESTRUCT2": "Self Destruct",
+    "INV_DESC_SPELL_SELFDESTRUCT2": "There's an Ooma inside all of us. Create a gargantuan explosion, converting Masks to damage and leaving you in critical condition. Lifeblood masks are less effective. Beware overcharming. \n\nThe explosion require SOUL to be conjured. Strike enemies to gather SOUL."
 }

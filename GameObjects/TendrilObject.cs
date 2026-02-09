@@ -15,7 +15,7 @@ namespace ExtraSpells.GameObjects
         GameObject tendril2;
         GameObject hitbox;
         PolygonCollider2D collider;
-        float damagenumber = 15;
+        float damagenumber = 20;
 
         public void Awake()
         {
@@ -25,8 +25,18 @@ namespace ExtraSpells.GameObjects
             collider = hitbox.GetComponent<PolygonCollider2D>();
 
             Destroy(GetComponent<DamageHero>());
+            Destroy(hitbox.GetComponent<DamageHero>());
 
-            
+            gameObject.layer = (int)PhysLayers.HERO_ATTACK;
+
+            for (int i = 0; i < gameObject.transform.childCount; i++)
+            {
+                GameObject obj = gameObject.transform.GetChild(i).gameObject;
+                obj.layer = (int)PhysLayers.HERO_ATTACK;
+            }
+
+            collider.points[1] = new Vector2(0.05f, -0.2f);
+            collider.points[2] = new Vector2(0.4f, -1.3f);
         }
 
         public void Start()
@@ -37,13 +47,13 @@ namespace ExtraSpells.GameObjects
 
             if (HeroController.instance.playerData.fireballLevel == 2)
             {
-                transform.localScale += new Vector3((float)-0.1, (float)0);
-                damagenumber = 30;
+                transform.localScale += new Vector3((float)-0.05, (float)0);
+                damagenumber = 35;
             }
 
             if (HeroController.instance.playerData.equippedCharm_19)
             {
-                transform.localScale += new Vector3((float)-0.1, (float)0);
+                transform.localScale += new Vector3((float)-0.05, (float)0);
                 damagenumber += 10;
             }
 
@@ -63,6 +73,8 @@ namespace ExtraSpells.GameObjects
 
             foreach (Collider2D col in results)
             {
+                if (col.gameObject.layer == (int)PhysLayers.HERO_DETECTOR) { continue; }
+
                 GameObject obj;
                 HealthManager manager = col.gameObject.GetComponent<HealthManager>();
                 if (manager == null)

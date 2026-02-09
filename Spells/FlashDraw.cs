@@ -35,7 +35,6 @@ namespace ExtraSpells.Spells
             flashDraw.AddTransition("FINISHED", "D Slash End", "DSlash Move End");
 
 
-
             SpellHelper.AddSpell(flashDraw, true);
         }
     }

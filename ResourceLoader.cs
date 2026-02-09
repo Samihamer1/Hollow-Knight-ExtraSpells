@@ -13,28 +13,43 @@ namespace ExtraSpells
         public static GameObject explosionObject;
         public static GameObject tendrilObject;
         public static GameObject xerobladeObject;
+        public static GameObject silkburstObject;
+
+        public static FsmObject silkburstAudioOneShot;
 
         public static void Initialise(Dictionary<string, Dictionary<string, GameObject>> preloadedObjects)
         {
             shadeenemy = preloadedObjects["Abyss_15"]["Shade Sibling (32)"];
             UnityEngine.Object.DontDestroyOnLoad(shadeenemy);
+            
 
+            //PV
             GameObject hkprime = preloadedObjects["GG_Hollow_Knight"]["Battle Scene/HK Prime"];
             UnityEngine.Object.DontDestroyOnLoad(hkprime);
             PlayMakerFSM hkfsm = hkprime.LocateMyFSM("Control");
             soulDagger = hkfsm.GetAction<FlingObjectsFromGlobalPoolTime>("SmallShot LowHigh", 2).gameObject.Value;
             tendrilObject = hkprime.Child("Tendrils");
 
+            //Zote Balloon
             GameObject zoteBalloon = preloadedObjects["GG_Grey_Prince_Zote"]["Zote Balloon"];
             UnityEngine.Object.DontDestroyOnLoad(zoteBalloon);
             PlayMakerFSM balloonfsm = zoteBalloon.LocateMyFSM("Control");
             explosionObject = balloonfsm.GetAction<CreateObject>("Explode", 1).gameObject.Value;
 
+            //Xero
             GameObject xero = preloadedObjects["GG_Ghost_Xero"]["Warrior/Ghost Warrior Xero"];
             UnityEngine.Object.DontDestroyOnLoad(xero);
             PlayMakerFSM xerofsm = xero.LocateMyFSM("Attacking");
             xerobladeObject = xero.Child("Sword 3");
+
+            //Hornet
+            GameObject hornet = preloadedObjects["GG_Hornet_2"]["Boss Holder/Hornet Boss 2"];
+            UnityEngine.Object.DontDestroyOnLoad(hornet);
+            PlayMakerFSM hornetfsm = hornet.LocateMyFSM("Control");
+            silkburstObject = hornet.Child("Sphere Ball");
+            silkburstAudioOneShot = hornetfsm.GetAction<AudioPlaySimple>("Sphere", 5).oneShotClip;
         }
+
         public static Texture2D LoadTexture2D(string path)
         {
             var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(path);

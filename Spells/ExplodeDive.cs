@@ -43,7 +43,7 @@ namespace ExtraSpells.Spells
                 GameObject explosion = UnityEngine.Object.Instantiate(ResourceLoader.explosionObject);
                 explosion.transform.position = HeroController.instance.transform.position;
 
-                explosion.AddComponent<ModifyExplosion>();
+                explosion.AddComponent<ExplodeDiveExplosion>();
             });
 
             //on ground
